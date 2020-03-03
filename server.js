@@ -19,7 +19,7 @@ port = 8080;
 var file = new static.Server(directory);
 
 /*Construct an http server that gets files from the file server*/
-var app =http.createServer(
+var app = http.createServer(
   function(request,response) {
     request.addListener('end',
       function(){
