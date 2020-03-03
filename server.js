@@ -13,7 +13,7 @@ var directory = __dirname + '/public';
 * information and we know that because port won't be set */
 if(typeof port == 'undefined' || !port) {
 directory = './public';
-port = 8080;
+port = 8585;
 }
 /* set up a static web-server that will deliver files from the filesystem */
 var file = new static.Server(directory);
