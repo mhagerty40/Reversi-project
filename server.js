@@ -7,12 +7,12 @@ var http = require('http');
 
 /*Assume that we are running on Heroku */
 var port = process.env.PORT;
-var directory = __dirname + '/public';
+var directory = __dirname + '/Public';
 
 /* if we aren't on Heroku, then we need to readjust the port and directory
 * information and we know that because port won't be set */
 if(typeof port == 'undefined' || !port) {
-directory = './public';
+directory = './Public';
 port = 8080;
 }
 /* set up a static web-server that will deliver files from the filesystem */
