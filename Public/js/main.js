@@ -21,26 +21,26 @@ if('undefined' == typeof username || !username)
     username = 'Anonymous_' +Math.random();
 }
 
-$('#messages').append('<h4>' +username+'</h4>')
 
 var chat_room = 'One_Room';
 
 
 /* Connect to the socket server */
+
 var socket = io.connect();
 
-socket.on('log', function(array)
+socket.on('log' ,function(array)
 {
   console.log.apply(console,array);
-}
-);
+});
 
 socket.on('join_room_response', function(payload)
 {
-  if(payload.result == 'fail'){
+  if(payload.result == 'fail')
+  {
       alert (payload.message);
       return;
-                              }
+  }
   $('#messages').append('<p>New user joined the room: '+payload.username+'</p>')
 });
 

@@ -37,9 +37,11 @@ console.log('The server is running');
 
 var io = require('socket.io').listen(app);
 
-io.sockets.on('connection', function (socket) {
+io.sockets.on( 'connection', function (socket)
+{
 
-    function log(){
+    function log()
+    {
       var array = ['*** Server Log message: '];
       for(var i = 0; i < arguments.length; i++)
       {
@@ -49,13 +51,14 @@ io.sockets.on('connection', function (socket) {
       socket.emit('log',array);
       socket.broadcast.emit('log', array);
     }
-    log('A web site connected from the server');
 
-    Socket.on('disconnect', function(socket)
+      log('A web site connected to the server');
+
+    socket.on('disconnect', function(socket)
     {
       log('A web site disconnected from the server');
     });
-
+});
 
     /* join room command */
     /*payload:
@@ -77,12 +80,14 @@ io.sockets.on('connection', function (socket) {
       }
     */
 
-    Socket.on('join_room', function(payload){
-      log('server received a command', 'join_room', payload);
-      if(('undefined' === typeof payload)  ||  !payload){
+    socket.on('join_room', function(payload)
+    {
+      log('server received a command' , 'join_room', payload);
+      if(('undefined' === typeof payload)  ||  !payload)
+      {
         var error_message = 'join_room had no payload, command aborted';
         log(error_message);
-        sockit.emit('join_room_response',     {
+        socket.emit('join_room_response',     {
                                                 result: 'fail',
                                                 message: error_message
                                               });
@@ -90,10 +95,11 @@ io.sockets.on('connection', function (socket) {
       }
 
       var room = payload.room;
-      if(('undefined' === typeof room)  ||  !room){
+      if(('undefined' === typeof room)  ||  !room)
+      {
         var error_message = 'join_room didn\'t specify a room, command aborted';
         log(error_message);
-        sockit.emit('join_room_response',     {
+        socket.emit('join_room_response',     {
                                                 result: 'fail',
                                                 message: error_message
                                               });
@@ -101,10 +107,11 @@ io.sockets.on('connection', function (socket) {
       }
 
       var username = payload.username;
-      if(('undefined' === typeof username)  ||  !username){
+      if(('undefined' === typeof username)  ||  !username)
+      {
         var error_message = 'join_room didn\'t specify a username command aborted';
         log(error_message);
-        sockit.emit('join_room_response',     {
+        socket.emit('join_room_response',     {
                                                 result: 'fail',
                                                 message: error_message
                                               });
@@ -114,11 +121,12 @@ io.sockets.on('connection', function (socket) {
       socket.join(room);
 
       var roomObject = io.sockets.adapter.rooms[room];
-      if(('undefined' === typeof roomObjects)  ||  !roomObjects){
+      if(('undefined' === typeof roomObjects)  ||  !roomObjects)
+      {
         var error_message = 'join_room couldn\'t create a room (internal error), command aborted';
 
         log(error_message);
-        sockit.emit('join_room_response',     {
+        socket.emit('join_room_response',     {
                                                 result: 'fail',
                                                 message: error_message
                                               });
@@ -133,7 +141,7 @@ io.sockets.on('connection', function (socket) {
                             membership: (numClients + 1)
                          };
       io.sockets.in(room).emit('join_room_response' ,success_data);
-      log('Room ' + room+ ' was just joined by ' + username);
+      log('Room ' + room + ' was just joined by ' + username);
     });
 
         /* join room command */
@@ -155,12 +163,12 @@ io.sockets.on('connection', function (socket) {
             'message' : failure message
           }
         */
-        Socket.on('send_message', function(payload){
+        socket.on('send_message', function(payload){
           log('server received a command', 'send_message', payload);
           if(('undefined' === typeof payload)  ||  !payload){
             var error_message = 'send_message had no payload, command aborted';
             log(error_message);
-            sockit.emit('send_message_response',     {
+            socket.emit('send_message_response',     {
                                                     result: 'fail',
                                                     message: error_message
                                                   });
@@ -171,7 +179,7 @@ io.sockets.on('connection', function (socket) {
           if(('undefined' === typeof room)  ||  !room){
             var error_message = 'send_message didn\'t specify a room, command aborted';
             log(error_message);
-            sockit.emit('send_message_response',     {
+            socket.emit('send_message_response',     {
                                                     result: 'fail',
                                                     message: error_message
                                                   });
@@ -182,7 +190,7 @@ io.sockets.on('connection', function (socket) {
           if(('undefined' === typeof username)  ||  !username){
             var error_message = 'send_message didn\'t specify a username command aborted';
             log(error_message);
-            sockit.emit('send_message_response',     {
+            socket.emit('send_message_response',     {
                                                     result: 'fail',
                                                     message: error_message
                                                   });
@@ -193,7 +201,7 @@ io.sockets.on('connection', function (socket) {
           if(('undefined' === typeof message)  ||  !message){
             var error_message = 'send_message didn\'t specify a username command aborted';
             log(error_message);
-            sockit.emit('send_message_response',     {
+            socket.emit('send_message_response',     {
                                                     result: 'fail',
                                                     message: error_message
                                                   });
