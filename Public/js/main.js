@@ -41,7 +41,7 @@ socket.on('join_room_response', function(payload)
       alert (payload.message);
       return;
   }
-  $('#messages').append('<p>New user joined the room: '+payload.username+'</p>')
+  $('#messages').append('<p>New user joined the room: '+payload.username+'</p>');
 });
 
 socket.on('send_message_response', function(payload)
