@@ -18,11 +18,11 @@ for(var i = 0; i < pageURLVariables.length; i++)
 var username = getURLParameters('username');
 if('undefined' == typeof username || !username)
 {
-    username = 'Anonymous_' +Math.random();
+    username = 'Anonymous_'+Math.random();
 }
 
 
-var chat_room = getURLParameters('game_id');;
+var chat_room = getURLParameters('game_id');
 if ('undefined' == typeof chat_room || !chat_room)
 {
   chat_room = 'lobby';
@@ -53,23 +53,23 @@ socket.on('join_room_response',function(payload)
     return;
   }
 /* If someone joined then add a new row to the lobby table */
-var dom_elements = $('.socket_' +payload.socket_id);
+var dom_elements = $('.socket_'+payload.socket_id);
 /* If we don't already have an entry for this person */
 if(dom_elements.length == 0)
 {
   var nodeA = $('<div></div>');
-    nodeA.addClass('socket_' +payload.socket_id);
+    nodeA.addClass('socket_'+payload.socket_id);
 
   var nodeB = $('<div></div>');
-    nodeB.addClass('socket_' +payload.socket_id);
+    nodeB.addClass('socket_'+payload.socket_id);
 
   var nodeC = $('<div></div>');
-    nodeC.addClass('socket_' +payload.socket_id);
+    nodeC.addClass('socket_'+payload.socket_id);
 
   nodeA.addClass('w-100');
 
   nodeB.addClass('col-9 text-right');
-  nodeB.append('<h4>' +payload.username+'</h4>');
+  nodeB.append('<h4>'+payload.username+'</h4>');
 
   nodeC.addClass('col-3 text-left');
   var buttonC = makeInviteButton();
@@ -92,7 +92,7 @@ else
 }
 
 /* Manage the message that a new player has joined */
-  var newHTML = '<p>' +payload.username+' just entered the lobby</p>';
+  var newHTML = '<p>'+payload.username+' just entered the lobby</p>';
   var newNode = $(newHTML);
   newNode.hide();
   $('#messages').append(newNode);
@@ -117,7 +117,7 @@ socket.on('player_disconnected', function(payload)
     return;
   }
 /* If someone left the room then animate out all their content */
-var dom-elements =$('.socket_' +payload.socket_id);
+var dom_elements =$('.socket_'+payload.socket_id);
 /* If something exists */
 if(dom_elements.length == 0)
 {
@@ -167,6 +167,6 @@ $(function()
   payload.username = username;
 
   console.log('*** Client Log Message: \'join_room\' payload: '+JSON.stringify(payload));
-  socket.emit('join_room' ,payload);
+  socket.emit('join_room',payload);
 }
 );
