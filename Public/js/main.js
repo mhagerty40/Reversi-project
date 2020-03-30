@@ -155,7 +155,7 @@ function send_message()
 
 function makeInviteButton()
 {
-  var newHTML = '<button type=\ 'button\' class=\'btn btn-outline-primary\'> Invite</button>';
+  var newHTML = '<button type=\'button\'class=\'btn btn-outline-primary\'> Invite</button>';
   var newNode = $(newHTML);
   return(newNode);
 }
