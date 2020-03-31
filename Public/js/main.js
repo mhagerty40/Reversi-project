@@ -63,6 +63,7 @@ else
     /* If we don't already have an entry for this person */
         if(dom_elements.length == 0)
             {
+                 console.log('entering dom elements length equal zero');
                  var nodeA = $('<div></div>');
                  nodeA.addClass('socket_'+payload.socket_id);
 
@@ -93,8 +94,10 @@ else
             }
         else
             {
+              console.log('entering dom element does not equal zero section');
               var buttonC = makeInviteButton();
               $('.socket_'+payload.socket_id+' button').replaceWith(buttonC);
+              console.log('button c equals', buttonC);
               dom_elements.slideDown(1000);
             }
 
@@ -111,6 +114,7 @@ else
 
 /* what to do when the server says that someone has left a room */
 socket.on('player_disconnected', function(payload)
+console.log('entered someone has left the room');
 {
   if(payload.result == 'fail')
   {
@@ -177,5 +181,4 @@ $(function()
 
   console.log('*** Client Log Message: \'join_room\' payload: '+JSON.stringify(payload));
   socket.emit('join_room',payload);
-}
-);
+});
