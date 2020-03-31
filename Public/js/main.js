@@ -54,8 +54,9 @@ socket.on('join_room_response',function(payload)
   }
 /* If someone joined then add a new row to the lobby table */
 var dom_elements = $('.socket_'+payload.socket_id);
+console.log('domain elements content ',dom_elements);
 /* If we don't already have an entry for this person */
-if(dom_elements.length == 0)
+if(dom_elements.length === 0)
 {
   var nodeA = $('<div></div>');
     nodeA.addClass('socket_'+payload.socket_id);
