@@ -61,7 +61,7 @@ else
 
 
     /* If we don't already have an entry for this person */
-        if(dom_elements.length === 0)
+        if(dom_elements.length == 0)
             {
                  var nodeA = $('<div></div>');
                  nodeA.addClass('socket_'+payload.socket_id);
@@ -106,6 +106,7 @@ else
   newNode.slideDown(1000);
 
   $('#messages').append('<p>New user joined the room: '+payload.username+'</p>');
+}
 });
 
 /* what to do when the server says that someone has left a room */
