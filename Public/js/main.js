@@ -114,8 +114,8 @@ else
 
 /* what to do when the server says that someone has left a room */
 socket.on('player_disconnected', function(payload)
-console.log('entered someone has left the room');
 {
+  console.log('entered someone has left the room');
   if(payload.result == 'fail')
   {
       alert (payload.message);
