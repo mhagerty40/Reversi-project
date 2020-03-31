@@ -32,7 +32,7 @@ if ('undefined' == typeof chat_room || !chat_room)
 var socket = io.connect();
 
 /* what to do when the server sends me a log message */
-socket.on('log' ,function(array)
+socket.on('log',function(array)
 {
   console.log.apply(console,array);
 });
@@ -43,7 +43,7 @@ socket.on('join_room_response',function(payload)
 {
   if(payload.result == 'fail')
   {
-      alert (payload.message);
+      alert(payload.message);
       return;
   }
 
@@ -87,7 +87,7 @@ if(dom_elements.length == 0)
 else
 {
   var buttonC = makeInviteButton();
-  $('.socket_' +payload.socket_id+' button').replaceWith(buttonC);
+  $('.socket_'+payload.socket_id+' button').replaceWith(buttonC);
   dom_elements.slideDown(1000);
 }
 

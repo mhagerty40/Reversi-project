@@ -40,21 +40,23 @@ console.log('The server is running');
 
     var players=[];
 
+    var success=[];
+
 var io = require('socket.io').listen(app);
 
-io.sockets.on('connection', function (socket)
+io.sockets.on('connection', function(socket)
 {
     log('Client connection by '+socket.id);
 
     function log()
     {
-      var array = ['*** Server Log message: '];
+      var array = ['*** Server Log Message: '];
       for(var i = 0; i < arguments.length; i++)
       {
           array.push(arguments[i]);
           console.log(arguments[i]);
       }
-      socket.emit('log',array);
+      socket.emit('log', array);
       socket.broadcast.emit('log', array);
     }
 
@@ -83,7 +85,7 @@ io.sockets.on('connection', function (socket)
 
     socket.on('join_room', function(payload)
     {
-      log('\'join_room\' command' +JSON.stringify(payload));
+      log('\'join_room\' command', +JSON.stringify(payload));
 
       /* Check that the client sent a payload */
       if(('undefined' === typeof payload)  ||  !payload)
@@ -144,7 +146,7 @@ io.sockets.on('connection', function (socket)
                             socket_id: socket.id,
                             membership: numClients
                          };
-      io.in(room).emit('join_room_response' ,success_data);
+      io.in(room).emit('join_room_response',success_data);
 
       for(var socket_in_room in roomObject.sockets)
       {
@@ -251,7 +253,7 @@ io.sockets.on('connection', function (socket)
                                   username: username,
                                   message: message
                               };
-          io.sockets.in(room).emit('send_message_response' ,success_data);
+          io.sockets.in(room).emit('send_message_response',success_data);
           log('Message sent to room ' + room + ' by ' + username);
 
 
