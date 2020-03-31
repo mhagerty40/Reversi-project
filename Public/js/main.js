@@ -98,9 +98,8 @@ else
   $('#messages').append(newNode);
   newNode.slideDown(1000);
 
-  $('#messages').append('<p>New user joined the room: '+payload.username+'</p>');
+$('#messages').append('<p>New user joined the room: '+payload.username+'</p>');
 });
-
 
 /* what to do when the server says that someone has left a room */
 socket.on('player_disconnected', function(payload)
@@ -117,7 +116,7 @@ socket.on('player_disconnected', function(payload)
     return;
   }
 /* If someone left the room then animate out all their content */
-var dom_elements =$('.socket_'+payload.socket_id);
+var dom_elements = $('.socket_'+payload.socket_id);
 /* If something exists */
 if(dom_elements.length == 0)
 {
@@ -125,7 +124,7 @@ if(dom_elements.length == 0)
 }
 
 /* Manage the message that a player has left */
-  var newHTML = '<p>' +payload.username+' has left the lobby</p>';
+  var newHTML = '<p>'+payload.username+' has left the lobby</p>';
   var newNode = $(newHTML);
   newNode.hide();
   $('#messages').append(newNode);
@@ -155,8 +154,10 @@ function send_message()
 
 function makeInviteButton()
 {
+    console.log('entering makeInviteButton');
   var newHTML = '<button type=\'button\' class=\'btn btn-outline-primary\'>Invite</button>';
   var newNode = $(newHTML);
+  console.log('contents of newnode',newNode);
   return(newNode);
 }
 

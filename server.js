@@ -170,7 +170,7 @@ io.sockets.on('connection', function(socket)
     {
       log('client disconnected '+JSON.stringify(players[socket.id]));
 
-      if('undefined' !== typeof players[socket.id] && players [socket.id])
+      if('undefined' !== typeof players[socket.id] && players[socket.id])
       {
         var username = players[socket.id].username;
         var room = players[socket.id].room;
@@ -180,7 +180,7 @@ io.sockets.on('connection', function(socket)
                 socket_id: socket.id
             };
         delete players[socket.id];
-        io.in(room).emit('player_disconnected' ,payload);
+        io.in(room).emit('player_disconnected',payload);
       }
 
     });
