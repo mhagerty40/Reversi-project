@@ -150,12 +150,12 @@ function send_message()
     payload.username = username;
     payload.message = $('#send_message_holder').val();
     console.log('*** Client Log Message: \'send_message\' payload: '+JSON.stringify(payload));
-    socket.emit('send_message' ,payload);
+    socket.emit('send_message',payload);
 }
 
 function makeInviteButton()
 {
-  var newHTML = '<button type=\'button\'class=\'btn btn-outline-primary\'> Invite</button>';
+  var newHTML = '<button type=\'button\' class=\'btn btn-outline-primary\'>Invite</button>';
   var newNode = $(newHTML);
   return(newNode);
 }

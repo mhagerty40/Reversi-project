@@ -40,10 +40,9 @@ console.log('The server is running');
 
 var io = require('socket.io').listen(app);
 
-io.sockets.on( 'connection', function (socket)
+io.sockets.on('connection', function (socket)
 {
-
-      log('Client connection by '+socket.id);
+    log('Client connection by '+socket.id);
 
     function log()
     {
@@ -128,6 +127,7 @@ io.sockets.on( 'connection', function (socket)
       players[socket.id].room = room;
 
       /* store information about this new player*/
+      /* Actually hae the user join the room*/
       socket.join(room);
 
       /* get the room object*/
@@ -173,7 +173,7 @@ io.sockets.on( 'connection', function (socket)
                 username: username,
                 socket_id: socket.id
             };
-        delete players[socekt.id];
+        delete players[socket.id];
         io.in(room).emit('player_disconnected' ,payload);
       }
 
