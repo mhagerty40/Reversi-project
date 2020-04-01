@@ -18,7 +18,8 @@ for(var i = 0; i < pageURLVariables.length; i++)
 var username = getURLParameters('username');
 if('undefined' == typeof username || !username)
 {
-    username = 'Anonymous_'+Math.random();
+      username = {};
+  /*  username = 'Anonymous_'+Math.random();*/
 }
 
 

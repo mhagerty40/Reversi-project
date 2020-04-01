@@ -128,8 +128,8 @@ io.sockets.on('connection', function(socket)
 
       /* Store information about this new player */
       players[socket.id] = {};
-      players[socket.id].username = +username;
-      players[socket.id].room = +room;
+      players[socket.id].username = username;
+      players[socket.id].room = room;
       console.log(players[socket.id].username);
       console.log(players[socket.id].room);
       /* Actually have the user join the room*/
