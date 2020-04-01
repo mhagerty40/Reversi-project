@@ -40,9 +40,9 @@ console.log('The server is running');
 
     var players=[];
 
-    var success=[];
+  /*  var success=[];
 
-    var data=[data];
+    var data=[data];*/
 
 var io = require('socket.io').listen(app);
 
@@ -92,7 +92,6 @@ io.sockets.on('connection', function(socket)
       /* Check that the client sent a payload */
       if(('undefined' === typeof payload)  ||  !payload)
       {
-        log('entering if payload undefined');
         var error_message = 'join_room had no payload, command aborted';
         log(error_message);
         socket.emit('join_room_response',     {
@@ -106,7 +105,6 @@ io.sockets.on('connection', function(socket)
       var room = payload.room;
       if(('undefined' === typeof room)  ||  !room)
       {
-        log('entering if room undefined');
         var error_message = 'join_room didn\'t specify a room, command aborted';
         log(error_message);
         socket.emit('join_room_response',     {
@@ -120,7 +118,6 @@ io.sockets.on('connection', function(socket)
       var username = payload.username;
       if(('undefined' === typeof username)  ||  !username)
       {
-        log('entering if username undefined');
         var error_message = 'join_room didn\'t specify a username command aborted';
         log(error_message);
         socket.emit('join_room_response',     {
@@ -134,7 +131,6 @@ io.sockets.on('connection', function(socket)
       players[socket.id] = {};
       players[socket.id].username = username;
       players[socket.id].room = room;
-      log(players[socket.id.username, players[socket.id.room])
       /* Actually have the user join the room*/
       socket.join(room);
 
