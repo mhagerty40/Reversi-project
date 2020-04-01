@@ -158,7 +158,7 @@ io.sockets.on('connection', function(socket)
       var success_data = {
                             result: 'success',
                             room: room,
-                            username: players[socket_in_room].room,
+                            username: players[socket_in_room].username,
                             socket_id: socket_in_room,
                             membership: numClients
                           };
@@ -176,7 +176,7 @@ io.sockets.on('connection', function(socket)
     {
       var username = players[socket.id].username;
       var room = players[socket.id].room;
-      var paylod = {
+      var payload = {
                       username: username,
                       socket_id: socket.id
                     };
