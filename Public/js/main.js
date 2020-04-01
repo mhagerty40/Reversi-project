@@ -76,7 +76,8 @@ socket.on('join_room_response',function(payload)
 
                  nodeB.addClass('col-9 text-right');
                  nodeB.append('<h4>'+payload.username+'</h4>');
-
+                 console.log('contents of username');
+                 console.log(+payload.username);
                  nodeC.addClass('col-3 text-left');
 
                  var buttonC = makeInviteButton();
@@ -99,6 +100,7 @@ socket.on('join_room_response',function(payload)
               dom_elements.slideDown(1000);
             }
 /* Manage the message that a new player has joined */
+  console.log(+payload.username);
   var newHTML = '<p>'+payload.username+' just entered the lobby</p>';
   var newNode = $(newHTML);
   newNode.hide();
