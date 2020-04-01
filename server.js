@@ -40,11 +40,9 @@ console.log('The server is running');
 
     var players=[];
 
-    var success_data=[];
+    var success=[];
 
-  /*  var success=[];
-
-    var data=[data];*/
+    var data=[data];
 
 var io = require('socket.io').listen(app);
 io.sockets.on('connection', function(socket)
@@ -132,6 +130,8 @@ io.sockets.on('connection', function(socket)
       players[socket.id] = {};
       players[socket.id].username = username;
       players[socket.id].room = room;
+      console.log(players[socket.id].username);
+      console.log(players[socket.id].room);
       /* Actually have the user join the room*/
       socket.join(room);
 
