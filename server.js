@@ -40,9 +40,11 @@ console.log('The server is running');
 
     var players=[];
 
-    var success=[];
+    var success_data=[];
 
-    var data=[data];
+  /*  var success=[];
+
+    var data=[data];*/
 
 var io = require('socket.io').listen(app);
 io.sockets.on('connection', function(socket)
