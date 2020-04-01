@@ -40,9 +40,9 @@ console.log('The server is running');
 
     var players=[];
 
-  /*  var success=[];
+  /*  var success=[];*/
 
-    var data=[data];*/
+    var data=[data];
 
 var io = require('socket.io').listen(app);
 
