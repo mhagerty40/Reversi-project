@@ -18,8 +18,7 @@ for(var i = 0; i < pageURLVariables.length; i++)
 var username = getURLParameters('username');
 if('undefined' == typeof username || !username)
 {
-      username = {};
-  /*  username = 'Anonymous_'+Math.random();*/
+      username = 'Anonymous_'+Math.random();
 }
 
 
@@ -57,8 +56,8 @@ socket.on('join_room_response',function(payload)
 
    /* If someone joined then add a new row to the lobby table */
   var dom_elements = $('.socket_'+payload.socket_id);
-  console.log('adding new row to lobby table ');
-
+  console.log('adding new user row to lobby table ');
+  console.log(+payload.username+);
 
     /* If we don't already have an entry for this person */
   if(dom_elements.length == 0)
@@ -97,7 +96,6 @@ socket.on('join_room_response',function(payload)
               console.log('entering dom element does not equal zero section');
               var buttonC = makeInviteButton();
               $('.socket_'+payload.socket_id+' button').replaceWith(buttonC);
-              console.log('button c equals', buttonC);
               dom_elements.slideDown(1000);
             }
 /* Manage the message that a new player has joined */
@@ -164,10 +162,8 @@ function send_message()
 
 function makeInviteButton()
 {
-    console.log('entering makeInviteButton');
   var newHTML = '<button type=\'button\' class=\'btn btn-outline-primary\'>Invite</button>';
   var newNode = $(newHTML);
-  console.log('contents of newnode',newNode);
   return(newNode);
 }
 
