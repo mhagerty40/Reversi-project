@@ -86,7 +86,7 @@ io.sockets.on('connection', function(socket)
 
     socket.on('join_room' ,function(payload)
     {
-      log( '\'join_room\' command' +JSON.stringify(payload));
+      log( '\'join_room\' command'+JSON.stringify(payload));
 
       /* Check that the client sent a payload */
       if(('undefined' === typeof payload)  ||  !payload)
