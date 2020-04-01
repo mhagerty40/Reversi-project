@@ -87,11 +87,12 @@ io.sockets.on('connection', function(socket)
 
     socket.on('join_room', function(payload)
     {
-      log('\'join_room\' command', +JSON.stringify(payload));
+      log( '\'join_room\' command', +JSON.stringify(payload));
 
       /* Check that the client sent a payload */
       if(('undefined' === typeof payload)  ||  !payload)
       {
+        console.log('entering if payload undefined');
         var error_message = 'join_room had no payload, command aborted';
         log(error_message);
         socket.emit('join_room_response',     {
@@ -105,6 +106,7 @@ io.sockets.on('connection', function(socket)
       var room = payload.room;
       if(('undefined' === typeof room)  ||  !room)
       {
+        console.log('entering if room undefined');
         var error_message = 'join_room didn\'t specify a room, command aborted';
         log(error_message);
         socket.emit('join_room_response',     {
@@ -114,10 +116,11 @@ io.sockets.on('connection', function(socket)
         return;
       }
 
-      /* Check that an username has been provided */
+      /* Check that a username has been provided */
       var username = payload.username;
       if(('undefined' === typeof username)  ||  !username)
       {
+        console.log('entering if username undefined');
         var error_message = 'join_room didn\'t specify a username command aborted';
         log(error_message);
         socket.emit('join_room_response',     {
@@ -131,9 +134,8 @@ io.sockets.on('connection', function(socket)
       players[socket.id] = {};
       players[socket.id].username = username;
       players[socket.id].room = room;
-
-      /* store information about this new player*/
-      /* Actually hae the user join the room*/
+      console.log(players[socket.id.username, players[socket.id.room])
+      /* Actually have the user join the room*/
       socket.join(room);
 
       /* get the room object*/
@@ -180,6 +182,7 @@ io.sockets.on('connection', function(socket)
                 socket_id: socket.id
             };
         delete players[socket.id];
+
         io.in(room).emit('player_disconnected',payload);
       }
 

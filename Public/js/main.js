@@ -52,17 +52,16 @@ socket.on('join_room_response',function(payload)
   {
     return;
   }
-else
- {
-   /* If someone joined then add a new row to the lobby table */
-    var dom_elements = $('.socket_'+payload.socket_id);
-    console.log('adding new row to lobby table ');
 
+
+   /* If someone joined then add a new row to the lobby table */
+  var dom_elements = $('.socket_'+payload.socket_id);
+  console.log('adding new row to lobby table ');
 
 
     /* If we don't already have an entry for this person */
-        if(dom_elements.length == 0)
-            {
+  if(dom_elements.length == 0)
+              {
                  console.log('entering dom elements length equal zero');
                  var nodeA = $('<div></div>');
                  nodeA.addClass('socket_'+payload.socket_id);
@@ -70,29 +69,29 @@ else
                  var nodeB = $('<div></div>');
                  nodeB.addClass('socket_'+payload.socket_id);
 
-                var nodeC = $('<div></div>');
-                nodeC.addClass('socket_'+payload.socket_id);
+                 var nodeC = $('<div></div>');
+                 nodeC.addClass('socket_'+payload.socket_id);
 
-                nodeA.addClass('w-100');
+                 nodeA.addClass('w-100');
 
-                nodeB.addClass('col-9 text-right');
-                nodeB.append('<h4>'+payload.username+'</h4>');
+                 nodeB.addClass('col-9 text-right');
+                 nodeB.append('<h4>'+payload.username+'</h4>');
 
-                nodeC.addClass('col-3 text-left');
+                 nodeC.addClass('col-3 text-left');
 
-                var buttonC = makeInviteButton();
-                nodeC.append(buttonC);
+                 var buttonC = makeInviteButton();
+                 nodeC.append(buttonC);
 
-                nodeA.hide();
-                nodeB.hide();
-                nodeC.hide();
-                $('#players').append(nodeA,nodeB,nodeC);
-                nodeA.slideDown(1000);
-                nodeB.slideDown(1000);
-                nodeC.slideDown(1000);
+                 nodeA.hide();
+                 nodeB.hide();
+                 nodeC.hide();
+                 $('#players').append(nodeA, nodeB, nodeC);
+                 nodeA.slideDown(1000);
+                 nodeB.slideDown(1000);
+                 nodeC.slideDown(1000);
 
             }
-        else
+    else
             {
               console.log('entering dom element does not equal zero section');
               var buttonC = makeInviteButton();
@@ -100,7 +99,6 @@ else
               console.log('button c equals', buttonC);
               dom_elements.slideDown(1000);
             }
-
 /* Manage the message that a new player has joined */
   var newHTML = '<p>'+payload.username+' just entered the lobby</p>';
   var newNode = $(newHTML);
@@ -108,8 +106,7 @@ else
   $('#messages').append(newNode);
   newNode.slideDown(1000);
 
-  $('#messages').append('<p>New user joined the room: '+payload.username+'</p>');
-}
+
 });
 
 /* what to do when the server says that someone has left a room */
