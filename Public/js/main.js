@@ -77,11 +77,11 @@ socket.on('join_room_response',function(payload)
 
                  nodeB.addClass('col-9 text-right');
                  nodeB.append('<h4>'+payload.username+'</h4>');
-                 console.log('contents of username');
-                 console.log(payload.username);
+
                  nodeC.addClass('col-3 text-left');
 
                  var buttonC = makeInviteButton();
+                 $('.socket_'+payload.socket_id+' button').replaceWith(buttonC);
                  nodeC.append(buttonC);
 
                  nodeA.hide();
@@ -92,10 +92,11 @@ socket.on('join_room_response',function(payload)
                  nodeB.slideDown(1000);
                  nodeC.slideDown(1000);
 
-            }
+               }
     else
             {
               console.log('entering dom element does not equal zero section');
+
               var buttonC = makeInviteButton();
               $('.socket_'+payload.socket_id+' button').replaceWith(buttonC);
               dom_elements.slideDown(1000);
