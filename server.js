@@ -40,7 +40,7 @@ console.log('The server is running');
 
     var players=[];
 
-    var success={};
+    var success=[];
 
     var data=[data];
 
