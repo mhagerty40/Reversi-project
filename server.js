@@ -42,7 +42,7 @@ console.log('The server is running');
 
     var success={};
 
-    var data=[];
+    var data=[data];
 
 var io = require('socket.io').listen(app);
 
