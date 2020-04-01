@@ -19,6 +19,7 @@ var username = getURLParameters('username');
 if('undefined' == typeof username || !username)
 {
       username = 'Anonymous_'+Math.random();
+      console.log(username);
 }
 
 
@@ -57,7 +58,7 @@ socket.on('join_room_response',function(payload)
    /* If someone joined then add a new row to the lobby table */
   var dom_elements = $('.socket_'+payload.socket_id);
   console.log('adding new user row to lobby table ');
-  console.log(+payload.username);
+  console.log(payload.username);
 
     /* If we don't already have an entry for this person */
   if(dom_elements.length == 0)
@@ -77,7 +78,7 @@ socket.on('join_room_response',function(payload)
                  nodeB.addClass('col-9 text-right');
                  nodeB.append('<h4>'+payload.username+'</h4>');
                  console.log('contents of username');
-                 console.log(+payload.username);
+                 console.log(payload.username);
                  nodeC.addClass('col-3 text-left');
 
                  var buttonC = makeInviteButton();
@@ -100,7 +101,7 @@ socket.on('join_room_response',function(payload)
               dom_elements.slideDown(1000);
             }
 /* Manage the message that a new player has joined */
-  console.log(+payload.username);
+
   var newHTML = '<p>'+payload.username+' just entered the lobby</p>';
   var newNode = $(newHTML);
   newNode.hide();
