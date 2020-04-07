@@ -168,7 +168,7 @@ socket.on('invite_response', function(payload)
 });
 
 /* Handle a notifcation that we have been invited */
-socket.on('invited',function (payload)
+socket.on('invited', function (payload)
 {
   if(payload.result == 'fail')
   {
@@ -271,39 +271,39 @@ socket.on('send_message_response', function(payload)
 });
 
 
-function makeInviteButton()
+function makeInviteButton(payload.socket_id)
 {
   console.log('called make invite button function');
   var newHTML = '<button type=\'button\' class=\'btn btn-outline-primary\'>Invite</button>';
   var newNode = $(newHTML);
   newNode.click(function()
   {
-    invite(socket_id);
+    invite(payload.socket_id);
   });
   return(newNode);
 }
 
 
-function makeInvitedButton()
+function makeInvitedButton(payload.socket_id)
 {
   console.log('called make invited button function');
   var newHTML = '<button type=\'button\' class=\'btn btn-primary\'>Invited</button>';
   var newNode = $(newHTML);
   newNode.click(function()
   {
-    invited(socket_id);
+    invited(payload.socket_id);
   });
   return(newNode);
 }
 
-function makePlayButton()
+function makePlayButton(payload.socket_id)
 {
   console.log('called play button function');
   var newHTML = '<button type=\'button\' class=\'btn btn-success\'>Play</button>';
   var newNode = $(newHTML);
   newNode.click(function()
   {
-    game_start();
+    game_start(payload.socket_id);
   });
   return(newNode);
 }
