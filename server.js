@@ -573,7 +573,7 @@ io.sockets.on('connection', function(socket)
                               game_id: game_id
                            };
 
-        socket.to(requested_user).emit('game-start_response', success_data);
+        socket.to(requested_user).emit('game_start_response', success_data);
 
         log('game_start successful');
       });
