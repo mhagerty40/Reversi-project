@@ -448,7 +448,7 @@ io.sockets.on('connection', function(socket)
        var roomObjects = io.sockets.adapter.rooms[room];
 
        /* Make sure the user being invited is in the room */
-       if (!roomobjects.sockets.hasOwnProperty(requested_user))
+       if (!roomObjects.sockets.hasOwnProperty(requested_user))
        {
          var error_message = 'uninvite requested a user that wasn\'t in the room, command aborted';
          log(error_message);
@@ -544,7 +544,7 @@ io.sockets.on('connection', function(socket)
         var room = players[socket.id].room;
         var roomObjects = io.sockets.adapter.rooms[room];
         /* Make sure the user being invited is in the room */
-        if (!roomobjects.sockets.hasOwnProperty(requested_user))
+        if (!roomObjects.sockets.hasOwnProperty(requested_user))
         {
           var error_message = 'game_start requested a user that wasn\'t in the room, command aborted';
           log(error_message);

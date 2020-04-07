@@ -163,7 +163,7 @@ socket.on('invite_response', function(payload)
   }
   console.log('Making invited Button');
   var newNode = makeInvitedButton(payload.socket_id);
-  $('.socket_'+payload.socekt_id+' button').replaceWith(newNode);
+  $('.socket_'+payload.socket_id+' button').replaceWith(newNode);
   console.log('Newnode = ', newNode);
 });
 
@@ -177,7 +177,7 @@ socket.on('invited', function (payload)
   }
   console.log('Making Play Button');
   var newNode = makePlayButton(payload.socket_id);
-  $('.socket_'+payload.socekt_id+' button').replaceWith(newNode);
+  $('.socket_'+payload.socket_id+' button').replaceWith(newNode);
 });
 
 
@@ -201,7 +201,7 @@ socket.on('uninvite_response', function(payload)
   }
   console.log('Making Invited Button After Uninviting user');
   var newNode = makeInviteButton(payload.socket_id);
-  $('.socket_'+payload.socekt_id+' button').replaceWith(newNode);
+  $('.socket_'+payload.socket_id+' button').replaceWith(newNode);
 });
 
 /* Handle a notifcation that we have been uninvited */
@@ -214,7 +214,7 @@ socket.on('uninvited', function(payload)
   }
   console.log('Making Invite Button Because Uninvited');
   var newNode = makeInviteButton(payload.socket_id);
-  $('.socket_'+payload.socekt_id+' button').replaceWith(newNode);
+  $('.socket_'+payload.socket_id+' button').replaceWith(newNode);
 });
 
 
@@ -239,7 +239,7 @@ socket.on('game_start_response', function(payload)
   }
   console.log('Making Engaged Button');
   var newNode = makeEngagedButton(payload.socket_id);
-  $('.socket_'+payload.socekt_id+' button').replaceWith(newNode);
+  $('.socket_'+payload.socket_id+' button').replaceWith(newNode);
 
   /* Jump to a new page */
   window.location.href = 'game.html?username='+username+'&game_id='+payload.game_id;
