@@ -291,7 +291,7 @@ function makeInvitedButton(socket_id)
   var newNode = $(newHTML);
   newNode.click(function()
   {
-    invited(socket_id);
+    uninvite(socket_id);
   });
   return(newNode);
 }
