@@ -271,39 +271,39 @@ socket.on('send_message_response', function(payload)
 });
 
 
-function makeInviteButton(payload.socket_id)
+function makeInviteButton(socket_id)
 {
   console.log('called make invite button function');
   var newHTML = '<button type=\'button\' class=\'btn btn-outline-primary\'>Invite</button>';
   var newNode = $(newHTML);
   newNode.click(function()
   {
-    invite(payload.socket_id);
+    invite(socket_id);
   });
   return(newNode);
 }
 
 
-function makeInvitedButton(payload.socket_id)
+function makeInvitedButton(socket_id)
 {
   console.log('called make invited button function');
   var newHTML = '<button type=\'button\' class=\'btn btn-primary\'>Invited</button>';
   var newNode = $(newHTML);
   newNode.click(function()
   {
-    invited(payload.socket_id);
+    invited(socket_id);
   });
   return(newNode);
 }
 
-function makePlayButton(payload.socket_id)
+function makePlayButton(socket_id)
 {
   console.log('called play button function');
   var newHTML = '<button type=\'button\' class=\'btn btn-success\'>Play</button>';
   var newNode = $(newHTML);
   newNode.click(function()
   {
-    game_start(payload.socket_id);
+    game_start(socket_id);
   });
   return(newNode);
 }
