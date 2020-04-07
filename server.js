@@ -312,6 +312,7 @@ io.sockets.on('connection', function(socket)
 
 
       /* Check that the message can be traced to a username */
+
       var username = players[socket.id].username;
       if(('undefined' === typeof username) || !username)
        {

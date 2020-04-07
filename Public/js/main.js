@@ -143,8 +143,10 @@ socket.on('player_disconnected', function(payload)
 /* Send an invite message to the server */
 function invite(who)
 {
+  console.log('called function invite');
   var payload = {};
   payload.requested_user = who;
+  console.log('Who is ', payload.requested_user);
 
   console.log('*** Client Log Message: \'invite\' payload: '+JSON.stringify(payload));
   socket.emit('invite', payload);
