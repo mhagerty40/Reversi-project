@@ -95,6 +95,7 @@ else
   dom_elements.slideDown(1000);
 }
 
+
 /*Manage the message that a new player has joined */
   var newHTML = '<p>'+payload.username+' just entered the lobby</p>';
   var newNode = $(newHTML);
@@ -153,7 +154,7 @@ function invite(who)
 }
 
 /* Handle a response after sending an invite message to the server */
-socket.on('invited_response', function(payload)
+socket.on('invite_response', function(payload)
 {
   if(payload.result == 'fail')
   {
@@ -163,10 +164,11 @@ socket.on('invited_response', function(payload)
   console.log('Making invited Button');
   var newNode = makeInvitedButton(payload.socket_id);
   $('.socket_'+payload.socekt_id+' button').replaceWith(newNode);
+  console.log('Newnode = ', newNode);
 });
 
 /* Handle a notifcation that we have been invited */
-socket.on('invited', function(payload)
+socket.on('invited',function (payload)
 {
   if(payload.result == 'fail')
   {
@@ -197,7 +199,7 @@ socket.on('uninvite_response', function(payload)
     alert(payload.message);
     return;
   }
-  console.log('Making Invite Button After Uninviting user');
+  console.log('Making Invited Button After Uninviting user');
   var newNode = makeInviteButton(payload.socket_id);
   $('.socket_'+payload.socekt_id+' button').replaceWith(newNode);
 });
@@ -289,7 +291,7 @@ function makeInvitedButton(socket_id)
   var newNode = $(newHTML);
   newNode.click(function()
   {
-    uninvite(socket_id);
+    invited(socket_id);
   });
   return(newNode);
 }
