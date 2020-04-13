@@ -1,6 +1,6 @@
 body {
-        background-image: url('assets/images/blue.png');
-    }
+        background-image: url('../images/blue.png');
+     }
 table#game_board
 {
   margin:auto;
@@ -20,4 +20,9 @@ td{
 #messages
 p{
   margin: 0px
+}
+
+td.hovered_over: hover {
+  background:url('../images/hover.gif'), rgb(0,240,0);
+  background-size: 100% 100%;
 }
