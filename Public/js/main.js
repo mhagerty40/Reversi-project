@@ -242,7 +242,7 @@ socket.on('game_start_response', function(payload)
   $('.socket_'+payload.socket_id+' button').replaceWith(newNode);
 
   /* Jump to a new page */
-  window.location.href = 'game.html?username=' +username+' &game_id='+payload.game_id;
+  window.location.href = 'game.html?username='+username+'&game_id='+payload.game_id;
 });
 
 
@@ -379,7 +379,7 @@ else
   window.location.href = 'lobby.html?username='+username;
   return;
 }
-$('#my_color').html('<h3 id="my_color">I am '+my_color+'</h3>');
+$('#my_color').html('<h3 id="my_color">Team '+my_color+'</h3>');
 
 
 
@@ -467,6 +467,7 @@ for(row = 0; row < 8; row++)
       }
     }
   }
+
   $('#blacksum').html(blacksum);
   $('#whitesum').html(whitesum);
 
