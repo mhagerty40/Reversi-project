@@ -1059,11 +1059,11 @@ for(row = 0; row < 8; row++)
     {
         count++;
     }
-    if(games[game_id].legal_moves[row][column] != 'b')
+    if(games[game_id].board[row][column] === 'b')
     {
         black++;
     }
-    if(games[game_id].legal_moves[row][column] != 'w')
+    if(games[game_id].board[row][column] === 'w')
     {
         white++;
     }
@@ -1098,6 +1098,5 @@ if (count == 0)
           delete games[id];
             }} (game_id)
         ,60*60*1000);
-
   }
 }
