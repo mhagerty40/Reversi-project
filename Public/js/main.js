@@ -381,7 +381,7 @@ else
   return;
 }
 $('#my_color').html('<h3 id="my_color">Team '+my_color+'</h3>');
-$('#my_color').append('<h4>It is '+payload.game.whose_turn+'\'s turn. Elasped time <span id="elapsed"></h4>');
+$('#my_color').append('<h4>It is '+payload.game.whose_turn+'\'s turn. Elapsed time <span id="elapsed"></h4>');
 
 clearInterval(interval_timer);
 interval_timer = setInterval( function(last_time)
