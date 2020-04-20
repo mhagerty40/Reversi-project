@@ -384,11 +384,11 @@ $('#my_color').html('<h3 id="my_color">Team '+my_color+'</h3>');
 $('#my_color').append('<h4>It is '+payload.game.whose_turn+'\'s turn. Elapsed time <span id="elapsed"></h4>');
 
 clearInterval(interval_timer);
-interval_timer = setInterval( function(last_time)
+interval_timer = setInterval(function(last_time)
 {
   return function()
   {
-  //Do the work of updating the UI//
+  // Do the work of updating the UI //
   var d = new Date();
   var elapsedmilli = d.getTime() - last_time;
   var minutes = Math.floor(elapsedmilli / (60 * 1000));
