@@ -396,7 +396,7 @@ interval_timer = setInterval( function(last_time)
 
   if(seconds < 10)
   {
-    $('#elapsed').html(minutes+'0'+seconds);
+    $('#elapsed').html(minutes+':0'+seconds);
   }
   else
   {
