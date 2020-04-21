@@ -381,7 +381,7 @@ else
   return;
 }
 $('#my_color').html('<h3 id="my_color">Team '+my_color+'</h3>');
-$('#my_color').append('<h4>It is '+payload.game.whose_turn+'\'s turn. Elapsed time <span id="elapsed"></h4>');
+$('#my_color').append('<h4>It is '+payload.game.whose_turn+'\'s turn. Elapsed time <span id="elapsed"></span></h4>');
 
 clearInterval(interval_timer);
 interval_timer = setInterval(function(last_time)
@@ -390,7 +390,7 @@ interval_timer = setInterval(function(last_time)
   {
   // Do the work of updating the UI //
   var d = new Date();
-  var elapsedmilli = d.getTime() - last_time + 25;
+  var elapsedmilli = d.getTime() - last_time;
   var minutes = Math.floor(elapsedmilli / (60 * 1000));
   var seconds = Math.floor((elapsedmilli % (60 * 1000))/ 1000);
 
