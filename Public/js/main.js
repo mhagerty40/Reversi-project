@@ -391,9 +391,9 @@ interval_timer = setInterval(function(last_time)
   // Do the work of updating the UI //
   var d = new Date();
   var elapsedmilli = d.getTime() - last_time;
+  resetgetTime();
   var minutes = Math.floor(elapsedmilli / (60 * 1000));
   var seconds = Math.floor((elapsedmilli % (60 * 1000))/ 1000);
-  resetgetTime();
 
   if(seconds < 10)
   {
