@@ -9,7 +9,8 @@ var http = require('http');
 /* Assume that we are running on Heroku */
 var port = process.env.PORT;
 var directory = __dirname + '/Public';
-var TZ="America/Los_Angeles";
+
+
 
 
 /* If we aren't on Heroku, then we need to readjust the port and directory

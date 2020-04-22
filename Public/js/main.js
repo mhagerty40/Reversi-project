@@ -392,11 +392,13 @@ interval_timer = setInterval(function(last_time)
   var d = new Date();
 
   var elapsedmilli = d.getTime() - last_time;
+  console.log('elapsed time = ', elapsedmilli);
+  console.log('last time = ', last_time);
   var minutes = Math.floor(elapsedmilli / (60 * 1000));
   var seconds = Math.floor((elapsedmilli % (60 * 1000))/ 1000);
 
 
-  if((seconds > 0) + (seconds < 10))
+  if (seconds < 10)
   {
     $('#elapsed').html(minutes+':0'+seconds);
   }
