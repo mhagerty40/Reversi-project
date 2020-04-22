@@ -393,7 +393,7 @@ interval_timer = setInterval(function(last_time)
 
   var current_time = d.getTime();
 
-  var elapsedmilli = (current_time - last_time);
+  var elapsedmilli = current_time - last_time;
 
 
   console.log('elapsed time = ', elapsedmilli);
