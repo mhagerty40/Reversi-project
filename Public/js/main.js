@@ -391,12 +391,16 @@ interval_timer = setInterval(function(last_time)
   // Do the work of updating UI //
   var d = new Date();
 
-  var elapsedmilli = d.getTime() - last_time;
+  var current_time = d.getTime();
+  var elapsedmilli = current_time - last_time;
+
+
   console.log('elapsed time = ', elapsedmilli);
+  console.log('current time = ', current_time);
   console.log('last time = ', last_time);
+
   var minutes = Math.floor(elapsedmilli / (60 * 1000));
   var seconds = Math.floor((elapsedmilli % (60 * 1000))/ 1000);
-
 
   if (seconds < 10)
   {
