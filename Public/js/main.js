@@ -392,9 +392,8 @@ interval_timer = setInterval(function(last_time)
   var d = new Date();
 
   var current_time = d.getTime();
-  current_time = (current_time + d.getTimezoneOffset());
 
-  var elapsedmilli = current_time - last_time;
+  var elapsedmilli = (current_time - (last_time - 26000));
 
 
   console.log('elapsed time = ', elapsedmilli);
